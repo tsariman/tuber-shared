@@ -1,0 +1,40 @@
+{
+  "name": "@tuber/shared",
+  "version": "0.1.0",
+  "description": "Shared TypeScript interfaces and types for Tuber projects",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rimraf dist",
+    "prepublishOnly": "pnpm run clean && pnpm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescript",
+    "interfaces",
+    "preact",
+    "shared"
+  ],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.19.0",
+  "dependencies": {
+    "preact": "^10.27.2"
+  },
+  "devDependencies": {
+    "@mui/material": "^7.3.4",
+    "@types/node": "^24.9.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "rimraf": "^5.0.10",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "@types/react": ">=18.0.0"
+  }
+}
