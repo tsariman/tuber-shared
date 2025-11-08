@@ -159,8 +159,9 @@ export function safely_get_as<T = TU>(
  * 
  * @deprecated Not in use!
  */
-export function get_global_var<T= TU>(varName: string): T {
+export function get_global_var<T= TU>(varName: string): T {  
   try {
+    // Use window directly - string indexes established in window-webui.d.ts
     return window[varName] as T;
   } catch (e) {
     void e;
@@ -178,7 +179,7 @@ export function get_global_var<T= TU>(varName: string): T {
 export function mongo_object_id(): string {
   const timestamp = (new Date().getTime() / 1000 | 0).toString(16);
   return timestamp + 'xxxxxxxxxxxxxxxx'.replace(/[x]/g, function() {
-      return (Math.random() * 16 | 0).toString(16);
+    return (Math.random() * 16 | 0).toString(16);
   }).toLowerCase();
 }
 
@@ -294,7 +295,7 @@ interface IViewportSize {
  * Credit:
  * @see https://stackoverflow.com/questions/1377782/javascript-how-to-determine-the-screen-height-visible-i-e-removing-the-space
  */
-export function get_viewport_size(): IViewportSize {
+export function get_viewport_size(): IViewportSize {  
   let e: TU = window, a = 'inner';
   if ( !( 'innerWidth' in window ) ) {
     a = 'client';

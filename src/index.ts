@@ -1,10 +1,11 @@
 // Ensure global Window augmentation is included in emitted types for consumers
+import './global';
+
 import { SxProps } from '@mui/material/styles';
-import './types/window-webui';
 
-export * from './interfaces';
+export type * from './interfaces';
 
-export type TTextProps = React.HTMLAttributes<HTMLSpanElement> & {
+export type TTextProps = preact.HTMLAttributes<HTMLSpanElement> & {
   sx?: SxProps;
 };
 
@@ -39,7 +40,7 @@ export type {
   IStateData as TStateData,
   IStateFormItemError as TStateFormItemError,
   IStateFormsDataErrors as TStateFormsDataErrors,
-  IStatePathnames as TStatePathnames,
+  TStatePathnames,
   IStateChip as TStateChip,
   IState as TState,
   TNetState,
@@ -84,7 +85,11 @@ export type {
   IStateTypography as TStateTypography
 } from './interfaces';
 
-export { default as get_config, type IConfiguration } from './configuration';
+export {
+  default as get_config,
+  type IConfiguration,
+  type Configuration
+} from './configuration';
 export * from './common.types';
 // Constants - explicitly export to avoid naming conflicts
 export {

@@ -93,12 +93,6 @@ export interface IStateFormsDataErrors {
   [formName: string]: IStateFormErrors;
 }
 
-export interface IStatePathnames {
-  dialogs?: string;
-  forms?: string;
-  pages?: string;
-}
-
 /** Chip state. */
 export interface IStateChip extends IStateFormItemCustom {
   /** [ **required** ] Chip id */
@@ -185,7 +179,7 @@ export default interface IState {
   themeDark: ThemeOptions;
   net: IStateNet;
   /** Get the pathnames needed to retrieve missing states. */
-  pathnames: IStatePathnames;
+  pathnames: TStatePathnames;
   /**
    * List of keys representing state fragments that can be loaded from the
    * server.
@@ -198,8 +192,8 @@ export default interface IState {
   dynamicRegistry: Record<string, unknown>;
 }
 
-export type IStateKeys = keyof IState;
-export type TStatePathnames = { [K in IStateKeys]: string; }
+export type TStateKeys = keyof IState;
+export type TStatePathnames = { [K in TStateKeys]?: string; }
 
 /**
  * Type for state retrieved remotely.

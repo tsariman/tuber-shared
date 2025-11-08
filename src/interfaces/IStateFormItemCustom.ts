@@ -14,7 +14,7 @@ import {
   RadioGroupProps,
   SvgIconProps
 } from '@mui/material';
-import { IStateKeys } from './IState';
+import { TStateKeys } from './IState';
 
 // Import IAdornment from the shared types file to avoid duplication
 import { IAdornment } from '../common.types';
@@ -28,7 +28,7 @@ export type TStateFormITemCustomColor = 'default'
   | 'warning';
 
 export type TDirectiveLoad = {
-  [K in IStateKeys]?: string[] | string; // Identifier(s) for the state to be loaded
+  [K in TStateKeys]?: string[] | string; // Identifier(s) for the state to be loaded
 };
 
 export type THandleDirectiveType = '$form'
