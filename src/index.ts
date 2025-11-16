@@ -1,13 +1,13 @@
 // Ensure global Window augmentation is included in emitted types for consumers
-import './global';
+import './global'
 
-import { SxProps } from '@mui/material/styles';
+import { SxProps } from '@mui/material/styles'
 
-export type * from './interfaces';
+export type * from './interfaces'
 
 export type TTextProps = preact.HTMLAttributes<HTMLSpanElement> & {
-  sx?: SxProps;
-};
+  sx?: SxProps
+}
 
 export type {
   IJsonapiDataAttributes as TJsonapiDataAttributes,
@@ -82,15 +82,15 @@ export type {
   IStateSession as TStateSession,
   IStateSnackbar as TStateSnackbar,
   IStateTopLevelLinks as TStateTopLevelLinks,
-  IStateTypography as TStateTypography
-} from './interfaces';
+  IStateTypography as TStateTypography,
+} from './interfaces'
 
 export {
   default as get_config,
-  type IConfiguration,
   type Configuration
-} from './configuration';
-export * from './common.types';
+} from './configuration'
+export * from './common.types'
+export { default as AbstractConfiguration } from './AbstractConfiguration'
 // Constants - explicitly export to avoid naming conflicts
 export {
   // State constants
@@ -192,8 +192,7 @@ export {
 
   // Types (with alias to avoid conflicts)
   type TStatePageLayout,
-} from './constants.client';
+} from './constants.client'
 
 // Server constants - explicitly export to avoid naming conflicts
-export * from './constants.server';
-export * from './utility';
+export * from './constants.server'

@@ -4,8 +4,10 @@ export const COLLECTION_NAME = 'bookmarks'
 
 // ENDPOINTS ------------------------------------------------------------------
 
-export const EP_AUTHENTICATE = 'authenticate'
-export const EP_SIGNOUT = 'signout'
+export const EP_AUTH = Object.freeze({
+  IN: 'signin',
+  OUT: 'signout'
+})
 export const EP_BOOKMARKS = 'bookmarks'
 export const EP_BOOKMARKS_ID = `${EP_BOOKMARKS}/:id`
 export const EP_LISTINGS = 'listings'
@@ -39,6 +41,7 @@ export const THEME_LIGHT_PAPER_SX_PROPS = {
 export const INFO = '[INFO]'
 export const JWT = '[JWT]'
 export const DEBUG = '[DEBUG]'
+export const WARNING = '[WARNING]'
 export const ERROR = '[ERROR]'
 
 // MESSAGES (msg prefix) ------------------------------------------------------
