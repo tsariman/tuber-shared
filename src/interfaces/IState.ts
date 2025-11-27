@@ -1,24 +1,24 @@
-import IStateDrawer from './IStateDrawer';
-import IStateAllDialogs from './IStateAllDialogs';
-import IStateAllForms from './IStateAllForms';
-import IStateAllPages from './IStateAllPages';
-import IStateApp from './IStateApp';
-import IStateAppbar from './IStateAppbar';
-import { TStateAppbarQueries } from './IStateAppbarQueries';
-import IStateBackground from './IStateBackground';
-import IStateDialog from './IStateDialog';
-import IStateNet from './IStateNet';
+import IStateDrawer from './IStateDrawer'
+import IStateAllDialogs from './IStateAllDialogs'
+import IStateAllForms from './IStateAllForms'
+import IStateAllPages from './IStateAllPages'
+import IStateApp from './IStateApp'
+import IStateAppbar from './IStateAppbar'
+import { TStateAppbarQueries } from './IStateAppbarQueries'
+import IStateBackground from './IStateBackground'
+import IStateDialog from './IStateDialog'
+import IStateNet from './IStateNet'
 import {
   IJsonapiDataAttributes,
   IJsonapiError,
-  IJsonapiResource
-} from './IJsonapi';
-import IStateSnackbar from './IStateSnackbar';
-import IStateTopLevelLinks from './IStateTopLevelLinks';
-import IStateTypography from './IStateTypography';
-import IStateFormItemCustom from './IStateFormItemCustom';
-import IStateAllIcons from './IStateAllIcons';
-import { ThemeOptions } from '@mui/material';
+  IJsonapiResponseResource
+} from './IJsonapi'
+import IStateSnackbar from './IStateSnackbar'
+import IStateTopLevelLinks from './IStateTopLevelLinks'
+import IStateTypography from './IStateTypography'
+import IStateFormItemCustom from './IStateFormItemCustom'
+import IStateAllIcons from './IStateAllIcons'
+import { ThemeOptions } from '@mui/material'
 
 /**
  * Local version of ThemeOptions. This is a simplified version for local use.
@@ -26,81 +26,104 @@ import { ThemeOptions } from '@mui/material';
  */
 export interface IThemeOptionsLocal {
   palette?: {
-    mode?: 'light' | 'dark';
+    mode?: 'light' | 'dark'
     primary?: {
-      main?: string;
-    };
+      main?: string
+    }
     secondary?: {
-      main?: string;
-    };
+      main?: string
+    }
     background?: {
-      default?: string;
-      paper?: string;
-    };
-    [key: string]: unknown;
-  };
+      default?: string
+      paper?: string
+    }
+    [key: string]: unknown
+  }
   typography?: {
-    fontFamily?: string;
-    fontSize?: number;
-    fontWeightLight?: number;
-    fontWeightRegular?: number;
-    fontWeightMedium?: number;
-    [key: string]: unknown;
-  };
-  spacing?: number | ((factor: number) => string | number);
+    fontFamily?: string
+    fontSize?: number
+    fontWeightLight?: number
+    fontWeightRegular?: number
+    fontWeightMedium?: number
+    [key: string]: unknown
+  }
+  spacing?: number | ((factor: number) => string | number)
   shape?: {
-    borderRadius?: number;
-    [key: string]: unknown;
-  };
-  components?: Record<string, unknown>;
-  [key: string]: unknown;
+    borderRadius?: number
+    [key: string]: unknown
+  }
+  components?: Record<string, unknown>
+  [key: string]: unknown
 }
 
 export interface ILoadedPagesRange {
-  first: string;
-  last: string;
+  first: string
+  last: string
 }
 
 export interface IStateDataPagesRange {
-  [endpoint: string]: ILoadedPagesRange | undefined;
+  [endpoint: string]: ILoadedPagesRange | undefined
 }
 
+/**
+ * The document's "primary data".
+ * @see https://jsonapi.org/format/#document-top-level
+ */
 export interface IStateData<T=IJsonapiDataAttributes> {
-  [endpoint: string]: IJsonapiResource<T>[];
+  [endpoint: string]: IJsonapiResponseResource<T>[]
 }
+
+export type TStateData<T=IJsonapiDataAttributes> = Record<
+  string,
+  IJsonapiResponseResource<T>[]
+>
+
+export interface IStateIncluded<T=IJsonapiDataAttributes> {
+  [endpoint: string]: IJsonapiResponseResource<T>[]
+}
+
+/** 
+ * An array of resource objects that are related to the primary data and/or
+ * each other
+ * @see https://jsonapi.org/format/#document-top-level
+ */
+export type TStateIncluded<T=IJsonapiDataAttributes> = Record<
+  string,
+  IJsonapiResponseResource<T>[]
+>
 
 export interface IStateFormItemError {
-  error?: boolean;
-  message?: string;
-  required?: boolean;
-  requiredMessage?: string;
-  maxLength?: number;
-  maxLengthMessage?: string;
-  disableOnError?: boolean;
-  invalidationRegex?: string;
-  invalidationMessage?: string;
-  validationRegex?: string;
-  validationMessage?: string;
-  mustMatch?: string;
-  mustMatchMessage?: string;
+  error?: boolean
+  message?: string
+  required?: boolean
+  requiredMessage?: string
+  maxLength?: number
+  maxLengthMessage?: string
+  disableOnError?: boolean
+  invalidationRegex?: string
+  invalidationMessage?: string
+  validationRegex?: string
+  validationMessage?: string
+  mustMatch?: string
+  mustMatchMessage?: string
 }
 
 export interface IStateFormErrors {
-  [name: string]: IStateFormItemError;
+  [name: string]: IStateFormItemError
 }
 
 export interface IStateFormsDataErrors {
-  [formName: string]: IStateFormErrors;
+  [formName: string]: IStateFormErrors
 }
 
 /** Chip state. */
 export interface IStateChip extends IStateFormItemCustom {
   /** [ **required** ] Chip id */
-  id: string;
-};
+  id: string
+}
 
 /** All chip states for a page stored as an object. */
-export type TStateChips = Record<string, IStateChip>;
+export type TStateChips = Record<string, IStateChip>
 /**
  * All chip states for all pages stored as an object. e.g.
  * ```ts
@@ -108,7 +131,7 @@ export type TStateChips = Record<string, IStateChip>;
  *   'endpoint': {
  *     'chipId': {}
  *   }
- * };
+ * }
  * ```
  */
 export type TStateAllChips = Record<string, TStateChips>
@@ -117,13 +140,13 @@ export type TStateAllChips = Record<string, TStateChips>
  * Redux store (root) state
  */
 export default interface IState {
-  app: IStateApp;
-  appbar: IStateAppbar;
-  appbarQueries: TStateAppbarQueries;
-  background: IStateBackground;
-  typography: IStateTypography;
-  icons: IStateAllIcons;
-  data: IStateData;
+  app: IStateApp
+  appbar: IStateAppbar
+  appbarQueries: TStateAppbarQueries
+  background: IStateBackground
+  /** **Note:** The property is the page route. */
+  chips: TStateAllChips
+  data: IStateData
   /**
    * Holds the page numbers as a range in a sequential order formatted as "a-b"
    * where `a` is the first page number and `b` is the last page number.
@@ -141,26 +164,42 @@ export default interface IState {
    * `data` state. If the pages range is `1-5` and the user goes to page `6`,
    * then the pages `1` and `2` will be removed from the `data` state.
    */
-  dataPagesRange: IStateDataPagesRange;
-  dialog: IStateDialog;
-  dialogs: IStateAllDialogs;
-  dialogsLight: IStateAllDialogs;
-  dialogsDark: IStateAllDialogs;
-  drawer: IStateDrawer;
-  errors: IJsonapiError[];
-  forms: IStateAllForms;
-  formsLight: IStateAllForms;
-  formsDark: IStateAllForms;
-  formsData: Record<string, unknown>;
-  formsDataErrors: IStateFormsDataErrors;
-  meta: Record<string, unknown>;
-  pages: IStateAllPages;
-  pagesLight: IStateAllPages;
-  pagesDark: IStateAllPages;
-  pagesData: Record<string, unknown>;
-  /** **Note:** The property is the page route. */
-  chips: TStateAllChips;
-  snackbar: IStateSnackbar;
+  dataPagesRange: IStateDataPagesRange
+  dialog: IStateDialog
+  dialogs: IStateAllDialogs
+  dialogsLight: IStateAllDialogs
+  dialogsDark: IStateAllDialogs
+  drawer: IStateDrawer
+  /** 
+   * List of keys representing state fragments that have already been loaded
+   * from server.
+   */
+  dynamicRegistry: Record<string, unknown>
+  errors: IJsonapiError[]
+  forms: IStateAllForms
+  formsLight: IStateAllForms
+  formsDark: IStateAllForms
+  formsData: Record<string, unknown>
+  formsDataErrors: IStateFormsDataErrors
+  included: IStateIncluded
+  icons: IStateAllIcons
+  meta: Record<string, unknown>
+  net: IStateNet
+  pages: IStateAllPages
+  pagesLight: IStateAllPages
+  pagesDark: IStateAllPages
+  pagesData: Record<string, unknown>
+  /** Get the pathnames needed to retrieve missing states. */
+  pathnames: TStatePathnames
+  snackbar: IStateSnackbar
+  /**
+   * List of keys representing state fragments that can be lazy-loaded from the
+   * server.
+   */
+  staticRegistry: Record<string, unknown>
+  theme: ThemeOptions
+  themeLight: ThemeOptions
+  themeDark: ThemeOptions
   /**
    * Holds temporary data.
    *
@@ -171,29 +210,14 @@ export default interface IState {
    * `suffix` `Form` indicates that the temporary data is stored for a form and
    * when the `newUserForm` accesses this data, it will be removed.
    */
-  tmp: Record<string, unknown>;
-  topLevelLinks: IStateTopLevelLinks;
+  tmp: Record<string, unknown>
+  topLevelLinks: IStateTopLevelLinks
   /** Material-ui `ThemeOptions` */
-  theme: ThemeOptions;
-  themeLight: ThemeOptions;
-  themeDark: ThemeOptions;
-  net: IStateNet;
-  /** Get the pathnames needed to retrieve missing states. */
-  pathnames: TStatePathnames;
-  /**
-   * List of keys representing state fragments that can be loaded from the
-   * server.
-   */
-  staticRegistry: Record<string, unknown>;
-  /** 
-   * List of keys representing state fragments that have already been loaded
-   * from server.
-   */
-  dynamicRegistry: Record<string, unknown>;
+  typography: IStateTypography
 }
 
-export type TStateKeys = keyof IState;
-export type TStatePathnames = { [K in TStateKeys]?: string; }
+export type TStateKeys = keyof IState
+export type TStatePathnames = { [K in TStateKeys]?: string }
 
 /**
  * Type for state retrieved remotely.
@@ -201,7 +225,7 @@ export type TStatePathnames = { [K in TStateKeys]?: string; }
  * It is similar to `IState` except that properties are optional to keep
  * the payload minimal.
  */
-export type TNetState = Partial<IState>;
+export type TNetState = Partial<IState>
 
 /** Type for a state that defines an icon. */
-export interface IStateFormItemCustomIcon extends IStateFormItemCustom {};
+export interface IStateFormItemCustomIcon extends IStateFormItemCustom {}

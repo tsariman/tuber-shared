@@ -9,6 +9,6 @@ export default interface IAbstractState {
   _type?: string;
   /** Spread me on a react component. */
   props?: Record<string, unknown>;
-  /** Use to apply CSS styles. */
+  /** Use to apply CSS styles. @deprecated */
   theme?: CSSProperties;
 }

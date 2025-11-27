@@ -40,7 +40,7 @@ export default interface IStateNet {
    */
   csrfToken?: string;
   /**
-   * Any value inserted here is automatically included as a request headers.
+   * Any value inserted here is automatically included as a request header.
    *
    * In addition, cone expressions are supported.
    */
