@@ -50,7 +50,7 @@ export default interface IStateAppbar extends Omit<IAbstractState, 'props'> {
   /** Icon button that's in the right corner of app bar search field. */
   searchFieldIconButton?: IStateLink;
   searchFieldIconButtonProps?: ButtonProps;
-  // searchFieldIconButtonOnClickHandle?: string
+  // searchFieldIconButtonOnClickHandler?: string
   /** (Desktop) props for box grouping the menu link */
   desktopMenuItemsProps?: BoxProps;
   desktopMenuItems2Props?: BoxProps;

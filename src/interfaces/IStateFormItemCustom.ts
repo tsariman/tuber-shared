@@ -1,6 +1,6 @@
-import { CSSProperties } from 'react';
-import { TReduxHandle } from '../state';
-import { IStateFormItemInputProps } from './IStateFormItem';
+import { CSSProperties } from 'react'
+import { TReduxHandler } from '../state'
+import { IStateFormItemInputProps } from './IStateFormItem'
 import {
   BadgeProps,
   ChipProps,
@@ -13,11 +13,11 @@ import {
   InputLabelProps,
   RadioGroupProps,
   SvgIconProps
-} from '@mui/material';
-import { TStateKeys } from './IState';
+} from '@mui/material'
+import { TStateKeys } from './IState'
 
 // Import IAdornment from the shared types file to avoid duplication
-import { IAdornment } from '../common.types';
+import { IAdornment } from '../common.types'
 
 export type TStateFormITemCustomColor = 'default'
   | 'primary'
@@ -25,84 +25,86 @@ export type TStateFormITemCustomColor = 'default'
   | 'error'
   | 'info'
   | 'success'
-  | 'warning';
+  | 'warning'
 
 export type TDirectiveLoad = {
-  [K in TStateKeys]?: string[] | string; // Identifier(s) for the state to be loaded
-};
+  [K in TStateKeys]?: string[] | string // Identifier(s) for the state to be loaded
+}
 
-export type THandleDirectiveType = '$form'
+export type THandlerDirectiveType = '$form'
 | '$form_dialog'
 | '$form_none'
 | '$filter'
-| '$none';
+| '$none'
 
-export type THandleDirectiveRule = 'close_dialog'
-| 'disable_on_submit';
+export type THandlerDirectiveRule = 'close_dialog'
+| 'disable_on_submit'
+| 'redirect_on_success'
+| 'redirect_on_failure'
 
-export interface IHandleDirective {
-  type: THandleDirectiveType; // The directive type like '$form', '$view', etc.
-  formName?: string;          // Form name for form-related directives
-  endpoint?: string;          // API endpoint for data operations
-  route?: string;             // Route for navigation
-  id?: string;                // Optional ID for specific operations
-  params?: Record<string, string>; // Additional parameters
-  load?: TDirectiveLoad;
-  rules?: THandleDirectiveRule[]
+export interface IHandlerDirective {
+  type: THandlerDirectiveType // The directive type like '$form', '$view', etc.
+  formName?: string          // Form name for form-related directives
+  endpoint?: string          // API endpoint for data operations
+  route?: string             // Route for navigation
+  id?: string                // Optional ID for specific operations
+  params?: Record<string, string> // Additional parameters
+  load?: TDirectiveLoad
+  rules?: THandlerDirectiveRule[]
 }
 
 export default interface IStateFormItemCustom<T = unknown> {
-  callback?: TReduxHandle;
+  callback?: TReduxHandler
   /** CSS classes (JSS), most likely inherited from parent element */
-  classes?: unknown;
-  content?: string;
-  color?: TStateFormITemCustomColor;
+  classes?: unknown
+  content?: string
+  color?: TStateFormITemCustomColor
   /**
    * Currently the only way to set the default value for a
    * field. Don't use the `value` attribute, it will not
    * work with React/Redux.
    */
-  defaultValue?: string;
+  defaultValue?: string
   /** Display a state icon */
-  icon?: string;
+  icon?: string
   /** Display a Material UI icon */
-  muiIcon?: string;
+  muiIcon?: string
   /** Display a SVG icon */
-  svgIcon?: string;
+  svgIcon?: string
   /** Display a Font-Awesome icon */
-  faIcon?: string;
+  faIcon?: string
   /**
    * #1 Whether the icon within the button should be located to the left or
    *    right of the label.
    */
-  iconPosition?: 'left' | 'right';
+  iconPosition?: 'left' | 'right'
   /** To be spread on `Icon` and `FontAwesomeIcon` component tags. */
-  iconProps?: IconProps;
-  svgIconProps?: SvgIconProps;
+  iconProps?: IconProps
+  svgIconProps?: SvgIconProps
   /** Contains data for <select />,  */
-  items?: T[];
+  items?: T[]
   /** Component id */
-  id?: string;
+  id?: string
   /**
    * Used in certain situations when the label attribute cannot be set on
    * HTMLElement directly.
    */
-  label?: string;
-  predefinedRegex?: 'username' | 'email' | 'phone';
-  route?: string;
-  text?: string;
+  label?: string
+  predefinedRegex?: 'username' | 'email' | 'phone'
+  route?: string
+  text?: string
   /** Get human-readable helper text. */
-  helperText?: string;
-  title?: string;
-  variant?: ChipProps['variant'];
+  helperText?: string
+  title?: string
+  variant?: ChipProps['variant']
   /**
    * badge props. If defined, the badge will show  
    * Badge example:
    * ```ts
-   * const badge = { badgeContent: 0, color: 'error' };
+   * const badge = { badgeContent: 0, color: 'error' }
    * ```
    */
-  badge?: BadgeProps;
+  badge?: BadgeProps
   /**
    * **Usage**:
    * to be used with `load` when loading `meta`. e.g.
@@ -110,7 +112,7 @@ export default interface IStateFormItemCustom<T = unknown> {
    * const meta = stateMeta['load']['key']
    * ```
    */
-  key?: string;
+  key?: string
   /**
    * Name of a pre-defined callback to be executed
    * .e.g.
@@ -119,126 +121,126 @@ export default interface IStateFormItemCustom<T = unknown> {
    *    callback1: () => { ... },
    *    callback2: () => { ... }
    *    // ... more callbacks
-   * };
-   * window.callbackGroup = callbackGroup;
+   * }
+   * window.callbackGroup = callbackGroup
    * ```
-   * Then call with handle:
+   * Then call with handler:
    * ```ts
    * const formItem = {
    *   'has': {
-   *     'onclickHandle': 'callbackGroup.callback1'
+   *     'onclickHandler': 'callbackGroup.callback1'
    *   }
-   * };
+   * }
    * ```
    */
-  onclickHandle?: string;
-  /** Check `onclickHandle` documentation for more information. */
-  onfocusHandle?: string;
-  /** Check `onclickHandle` documentation for more information. */
-  onchangeHandle?: string;
-  /** Check `onclickHandle` documentation for more information. */
-  onkeydownHandle?: string;
-  /** Check `onclickHandle` documentation for more information. */
-  onblurHandle?: string;
-  /** Check `onclickHandle` documentation for more information. */
-  ondeleteHandle?: string;
+  onclickHandler?: string
+  /** Check `onclickHandler` documentation for more information. */
+  onfocusHandler?: string
+  /** Check `onclickHandler` documentation for more information. */
+  onchangeHandler?: string
+  /** Check `onclickHandler` documentation for more information. */
+  onkeydownHandler?: string
+  /** Check `onclickHandler` documentation for more information. */
+  onblurHandler?: string
+  /** Check `onclickHandler` documentation for more information. */
+  ondeleteHandler?: string
   /** `onclick` callback defined using directives */
-  onclickHandleDirective?: IHandleDirective;
+  onclickHandlerDirective?: IHandlerDirective
   /** `onfocus` callback defined using directives */
-  onfocusHandleDirective?: IHandleDirective;
+  onfocusHandlerDirective?: IHandlerDirective
   /** `onchange` callback defined using directives */
-  onchangeHandleDirective?: IHandleDirective;
+  onchangeHandlerDirective?: IHandlerDirective
   /** `onkeydown` callback defined using directives */
-  onkeydownHandleDirective?: IHandleDirective;
+  onkeydownHandlerDirective?: IHandlerDirective
   /** `onblur` callback defined using directives */
-  onblurHandleDirective?: IHandleDirective;
+  onblurHandlerDirective?: IHandlerDirective
   /** `ondelete` callback defined using directives */
-  ondeleteHandleDirective?: IHandleDirective;
+  ondeleteHandlerDirective?: IHandlerDirective
   /** `onclick` callback that can trigger state changes using Redux actions */
-  clickReduxHandle?: TReduxHandle;
+  clickReduxHandler?: TReduxHandler
   /** `onfocus` callback that can trigger state changes using Redux actions */
-  focusReduxHandle?: TReduxHandle;
+  focusReduxHandler?: TReduxHandler
   /** `onkeydown` callback that can trigger state changes using Redux actions */
-  keydownReduxHandle?: TReduxHandle;
+  keydownReduxHandler?: TReduxHandler
   /** `onchange` callback that can trigger state changes using Redux actions */
-  changeReduxHandle?: TReduxHandle;
+  changeReduxHandler?: TReduxHandler
   /** `onblur` callback that can trigger state changes using Redux actions */
-  blurReduxHandle?: TReduxHandle;
+  blurReduxHandler?: TReduxHandler
   /** Used by the Chip component */
-  onClick?: TReduxHandle;
+  onClick?: TReduxHandler
   /** Used by the Chip component */
-  onDelete?: TReduxHandle;
+  onDelete?: TReduxHandler
   /**
    * Load metadata into field from `state.meta`. The metadata will be
    * identified by the endpoint (this value). If the data is missing, the
    * normal data source will be used.
    */
-  load?: string;
+  load?: string
   /** Material UI adornments. */
-  startAdornment?: IAdornment;
-  endAdornment?: IAdornment;
-  props?: Record<string, unknown>;
-  inputProps?: IStateFormItemInputProps;
+  startAdornment?: IAdornment
+  endAdornment?: IAdornment
+  props?: Record<string, unknown>
+  inputProps?: IStateFormItemInputProps
   /** JSS style */
-  theme?: CSSProperties;
+  theme?: CSSProperties
   /** Used for select components */
-  formControlProps?: FormControlProps;
+  formControlProps?: FormControlProps
   /** Used for select components */
-  formControlLabelProps?: FormControlLabelProps;
+  formControlLabelProps?: FormControlLabelProps
   /** Used for select components */
-  inputLabelProps?: InputLabelProps;
+  inputLabelProps?: InputLabelProps
   /** Used for radio components */
-  formLabelProps?: FormLabelProps;
+  formLabelProps?: FormLabelProps
   /** Used for radio components */
-  radioGroupProps?: RadioGroupProps;
+  radioGroupProps?: RadioGroupProps
   /** Use for switch components */
-  formGroupProps?: FormGroupProps;
+  formGroupProps?: FormGroupProps
   /** Use for select and switch components */
-  formHelperTextProps?: FormHelperTextProps;
-  highlight?: string;
+  formHelperTextProps?: FormHelperTextProps
+  highlight?: string
   /** Maximum length of the input field. */
-  maxLength?: number;
+  maxLength?: number
   /** Message to display if the value of the input field exceeds `maxLength` */
-  maxLengthMessage?: string;
+  maxLengthMessage?: string
   /** Set to `true` to disable some fields on error. @deprecated */
-  disableOnError?: boolean;
+  disableOnError?: boolean
   /**
    * Regular expression to disallow certain words or characters in an input field.  
    * Every word or character should be separated by a vertical bar,
    * for example. the regex would be: `/password|credit/` or `@|'|"|%`  
    * In this case, the regex must not match for the input to be valid.
    */
-  invalidationRegex?: string;
+  invalidationRegex?: string
   /**
    * Message to display if the value of the input field matches
    * `invalidationRegex`
    */
-  invalidationMessage?: string;
+  invalidationMessage?: string
   /**
    * Regular expression to validate an input field.  
    * e.g. `/^\d{5}-\d{4}$/` to validate a zip code  
    * In this case, the regex must match for the input to be valid.
    */
-  validationRegex?: string;
+  validationRegex?: string
   /**
    * Message to display when the input field did not match `validationRegex`.  
    * e.g. "Please enter a valid zip code."
    */
-  validationMessage?: string;
+  validationMessage?: string
   /** Input is not allowed to be empty. */
-  required?: boolean;
+  required?: boolean
   /** Message to display if the input is empty. */
-  requiredMessage?: string;
+  requiredMessage?: string
   /** Name of the field whose value this input must match. */
-  mustMatch?: string;
+  mustMatch?: string
   /** Message to display if the field values do not match. */
-  mustMatchMessage?: string;
+  mustMatchMessage?: string
 }
 
-export type THandleName = 'onclick'
+export type THandlerName = 'onclick'
   | 'onchange'
   | 'onkeydown'
   | 'onblur'
   | 'onfocus'
-  | 'ondelete';
+  | 'ondelete'
 

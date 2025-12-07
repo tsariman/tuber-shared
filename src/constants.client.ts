@@ -100,21 +100,21 @@ export const BAD_FORM_ITEM = ''
 
 // miscellanous
 
-export const THEME_MODE = 'theme_mode'
+// export const THEME_MODE = 'theme_mode'
 export const THEME_DEFAULT_MODE = 'dark'
 
 /** Type for page layout. */
-export type TStatePageLayout =
-    typeof LAYOUT_CENTERED_NO_SCROLL
-  | typeof LAYOUT_CENTERED
-  | typeof LAYOUT_DEFAULT
-  | typeof LAYOUT_MD
-  | typeof LAYOUT_NONE
-  | typeof LAYOUT_NONE_NO_APPBAR
-  | typeof LAYOUT_SM
-  | typeof LAYOUT_TABLE_VIRTUALIZED
-  | typeof LAYOUT_XL
-  | typeof LAYOUT_XS
+// export type TStatePageLayout =
+//     typeof LAYOUT_CENTERED_NO_SCROLL
+//   | typeof LAYOUT_CENTERED
+//   | typeof LAYOUT_DEFAULT
+//   | typeof LAYOUT_MD
+//   | typeof LAYOUT_NONE
+//   | typeof LAYOUT_NONE_NO_APPBAR
+//   | typeof LAYOUT_SM
+//   | typeof LAYOUT_TABLE_VIRTUALIZED
+//   | typeof LAYOUT_XL
+//   | typeof LAYOUT_XS
 
 export const DRAWER_DEFAULT_WIDTH = 300
 
