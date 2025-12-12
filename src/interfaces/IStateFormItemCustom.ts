@@ -39,8 +39,6 @@ export type THandlerDirectiveType = '$form'
 
 export type THandlerDirectiveRule = 'close_dialog'
 | 'disable_on_submit'
-| 'redirect_on_success'
-| 'redirect_on_failure'
 
 export interface IHandlerDirective {
   type: THandlerDirectiveType // The directive type like '$form', '$view', etc.
