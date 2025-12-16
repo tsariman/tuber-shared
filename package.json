@@ -1,6 +1,6 @@
 {
   "name": "@tuber/shared",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Shared TypeScript interfaces and types for Tuber projects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
