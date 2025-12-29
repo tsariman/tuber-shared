@@ -1,10 +1,10 @@
 /*
   DO NOT ADD OR REMOVE ANYTHING FROM THIS FILE.
-  Some of these types are marked as deprecated to prevent their use.
+  Some of these types are marked as deprecated to prevent their use
 */
 
 /**
- * Makes a single property optional.
+ * Makes a single property optional
  *
  * @see https://stackoverflow.com/a/61108377/1875859
  */
@@ -15,6 +15,9 @@ export type TWithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] }
 
 /** @deprecated */
 export type TObj<T = unknown> = Record<string, T>
+
+/** Type shortcut when creating objects with string keys */
+export type O<T = unknown> = Record<string, T>
 
 /** @deprecated */
 export type TReadonly<K extends string | number | symbol, T> = {

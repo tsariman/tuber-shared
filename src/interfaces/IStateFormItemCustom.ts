@@ -235,7 +235,7 @@ export default interface IStateFormItemCustom<T = unknown> {
   mustMatchMessage?: string
 }
 
-export type THandlerName = 'onclick'
+export type TEventName = 'onclick'
   | 'onchange'
   | 'onkeydown'
   | 'onblur'
