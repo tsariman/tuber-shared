@@ -48,7 +48,7 @@ export const ERROR = '[ERROR]'
 
 export const LOG_INFO = '[INFO]'
 export const LOG_DEBUG = '[DEBUG]'
-export const MSG_500_ERROR_MESSAGE = 'Failed.\n[ERROR][500] Internal Server Error.'
+export const MSG_500_ERROR_MESSAGE = '[❌]\n[ERROR][500] Internal Server Error'
 export const MSG_INVALID_ACCESS_TOKEN = 'INVALID_ACCESS_TOKEN'
 
 // FORMS (form fields prefix) -------------------------------------------------
