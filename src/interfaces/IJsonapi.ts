@@ -32,6 +32,7 @@ export type TJsonapiErrorCode = 'CAUGHT_EXCEPTION'
 | 'POSSIBLE_ERROR'
 | 'AUTHENTICATION_ERROR'
 | 'DATABASE_ERROR'
+| 'UNSPECIFIED'
 
 export type TJsonapiErrorStatus = '100' | '101' | '102'
 | '200' | '201' | '202' | '203' | '204' | '205' | '206' | '207' | '208' | '226'
