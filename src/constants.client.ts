@@ -48,7 +48,7 @@ export const DEFAULT_BLANK_PAGE_VIEW = 'default_blank_page_view'
 // form items
 
 export const BREAK_LINE = 'br'
-export const BOOL_ONOFF = 'bool_onof'
+export const BOOL_ONOFF = 'bool_onoff'
 export const BOOL_TRUEFALSE = 'bool_truefalse'
 export const BOOL_YESNO = 'bool_yesno'
 export const BOX = 'box'
