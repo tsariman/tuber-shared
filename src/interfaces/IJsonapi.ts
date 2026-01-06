@@ -32,6 +32,8 @@ export type TJsonapiErrorCode = 'CAUGHT_EXCEPTION'
 | 'POSSIBLE_ERROR'
 | 'AUTHENTICATION_ERROR'
 | 'DATABASE_ERROR'
+| 'EXTERNAL_ERROR' // Error from external service or API
+| 'FASTIFY_ERROR' // Error from Fastify framework
 | 'UNSPECIFIED'
 
 export type TJsonapiErrorStatus = '100' | '101' | '102'

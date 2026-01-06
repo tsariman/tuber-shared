@@ -1,17 +1,18 @@
 // state
 
-export const APP_IS_BOOTSTRAPPED   = 'APP_IS_BOOTSTRAPPED'
-export const APP_IS_FETCHING       = 'APP_IS_FETCHING'
-export const APP_IS_READY          = 'APP_IS_READY'
-export const APP_SWITCHED_PAGE     = 'APP_SWITCHED_PAGE'
+export const APP_IS_BOOTSTRAPPED       = 'APP_IS_BOOTSTRAPPED'
+export const APP_IS_FETCHING           = 'APP_IS_FETCHING'
+export const APP_IS_READY              = 'APP_IS_READY'
+export const APP_SWITCHED_PAGE         = 'APP_SWITCHED_PAGE'
 export const APP_BROWSER_SWITCHED_PAGE = 'APP_BROWSER_SWITCHED_PAGE'
-export const APP_REQUEST_FAILED    = 'APP_REQUEST_FAILED'
-export const APP_REQUEST_SUCCESS   = 'APP_REQUEST_SUCCESS'
+export const APP_REQUEST_FAILED        = 'APP_REQUEST_FAILED'
+export const APP_REQUEST_SUCCESS       = 'APP_REQUEST_SUCCESS'
+
+// actions
 
 export const ERRORS_ADD = 'errors/errorsAdd'
 export const ERRORS_REMOVE = 'errors/errorsRemove'
 export const ERRORS_CLEAR = 'errors/errorsClear'
-
 export const NET_STATE_PATCH = 'NET_STATE_PATCH'
 export const STATE_RESET = 'STATE_RESET'
 
