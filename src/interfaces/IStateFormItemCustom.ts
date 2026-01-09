@@ -35,11 +35,18 @@ export type THandlerDirectiveType = '$form'
 | '$form_dialog'
 | '$form_none'
 | '$filter'
+| '$redux_actions'
 | '$none'
 
 export type THandlerDirectiveRule = 'close_dialog'
 | 'disable_on_submit'
 
+export interface IHandlerDirectiveAction {
+  type: string
+  payload?: unknown
+}
+
+/** Directive for handling form and other UI events */
 export interface IHandlerDirective {
   type: THandlerDirectiveType // The directive type like '$form', '$view', etc.
   formName?: string          // Form name for form-related directives
@@ -49,6 +56,8 @@ export interface IHandlerDirective {
   params?: Record<string, string> // Additional parameters
   load?: TDirectiveLoad
   rules?: THandlerDirectiveRule[]
+  /** Redux actions to perform after the directive is executed */
+  actions?: IHandlerDirectiveAction[]
 }
 
 export default interface IStateFormItemCustom<T = unknown> {
