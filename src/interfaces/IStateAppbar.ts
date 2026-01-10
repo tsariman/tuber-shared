@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react'
 import {
   BoxProps,
   ButtonProps,
@@ -6,102 +6,106 @@ import {
   MenuProps,
   SxProps,
   TypographyProps
-} from '@mui/material';
+} from '@mui/material'
 import {
   AppBarProps as AppbarProps,
   ToolbarProps,
   InputBaseProps
-} from '@mui/material';
-import IAbstractState from './IAbstractState';
-import IStateBackground from './IStateBackground';
-import IStateComponent from './IStateComponent';
-import IStateFormItemCustom from './IStateFormItemCustom';
-import IStateLink from './IStateLink';
-import IStateTypography from './IStateTypography';
+} from '@mui/material'
+import IAbstractState from './IAbstractState'
+import IStateBackground from './IStateBackground'
+import IStateComponent from './IStateComponent'
+import IStateFormItemCustom from './IStateFormItemCustom'
+import IStateLink from './IStateLink'
+import IStateTypography from './IStateTypography'
 
-export type TAppbarStyle = 'basic' | 'mini' | 'responsive' | 'middle_search' | 'none';
+export type TAppbarStyle = 'basic' | 'mini' | 'responsive' | 'middle_search' | 'none'
 
 export default interface IStateAppbar extends Omit<IAbstractState, 'props'> {
-  _type?: TAppbarStyle;
+  _type?: TAppbarStyle
   /** App bar style from Material-ui example's website. */
-  appbarStyle?: TAppbarStyle;
+  appbarStyle?: TAppbarStyle
   /** mui5 logo tag. i.e. "img" */
-  logoTag?: 'div' | 'img';
+  logoTag?: 'div' | 'img'
   /** app bar component props */
-  props?: AppbarProps;
+  props?: AppbarProps
   /** toolbar component props */
-  toolbarProps?: ToolbarProps;
+  toolbarProps?: ToolbarProps
   /** hamburger icon props */
-  menuIconProps?: IconButtonProps;
-  logoProps?: Record<string, unknown>;
+  menuIconProps?: IconButtonProps
+  logoProps?: Record<string, unknown>
   /** mui5 text-logo props */
-  textLogoProps?: TypographyProps;
-  logoContainerProps?: HTMLAttributes<HTMLDivElement> & { sx?: SxProps };
+  textLogoProps?: TypographyProps
+  logoContainerProps?: HTMLAttributes<HTMLDivElement> & { sx?: SxProps }
   /** Appbar textfield props */
-  inputBaseProps?: InputBaseProps;
+  inputBaseProps?: InputBaseProps
   /** Appbar input chips */
-  inputBaseChips?: IStateFormItemCustom[];
+  inputBaseChips?: IStateFormItemCustom[]
   /** Appbar search field props */
-  searchContainerProps?:  HTMLAttributes<HTMLDivElement> & { sx?: SxProps };
-  /** Icon that's in the left corner of app bar search field. */
-  searchFieldIcon?: IStateFormItemCustom;
+  searchContainerProps?:  HTMLAttributes<HTMLDivElement> & { sx?: SxProps }
+  /** Icon that's in the left corner of app bar search field. @deprecated */
+  searchFieldIcon?: IStateFormItemCustom
+  /** Button that's in the left corner of app bar search field. */
+  startAdornmentButton?: IStateLink
+  /** Props for the button that's in the left corner of app bar search field. */
+  startAdornmentButtonProps?: ButtonProps
   /** Whether to hide the search field icon. */
-  hideSearchFieldIcon?: boolean;
+  hideSearchFieldIcon?: boolean
   /** Icon button that's in the right corner of app bar search field. */
-  searchFieldIconButton?: IStateLink;
-  searchFieldIconButtonProps?: ButtonProps;
+  searchFieldIconButton?: IStateLink
+  searchFieldIconButtonProps?: ButtonProps
   // searchFieldIconButtonOnClickHandler?: string
   /** (Desktop) props for box grouping the menu link */
-  desktopMenuItemsProps?: BoxProps;
-  desktopMenuItems2Props?: BoxProps;
+  desktopMenuItemsProps?: BoxProps
+  desktopMenuItems2Props?: BoxProps
   /** (Mobile) props for box grouping the menu link */
-  mobileMenuItemsProps?: BoxProps;
-  mobileMenuItems2Props?: BoxProps;
+  mobileMenuItemsProps?: BoxProps
+  mobileMenuItems2Props?: BoxProps
   /** when web page is in mobile view, this icon will show */
-  mobileMenuIconProps?: IconButtonProps;
-  mobileMenuIcon2Props?: IconButtonProps;
+  mobileMenuIconProps?: IconButtonProps
+  mobileMenuIcon2Props?: IconButtonProps
   /** each individual items */
-  mobileMenuProps?: MenuProps;
+  mobileMenuProps?: MenuProps
   /** each individual items */
-  mobileMenu2Props?: MenuProps;
+  mobileMenu2Props?: MenuProps
   /** props applied to all menu items */
-  menuItemsProps?: HTMLAttributes<HTMLLIElement> & { sx?: SxProps };
+  menuItemsProps?: HTMLAttributes<HTMLLIElement> & { sx?: SxProps }
   /** style to be applied to all menu items */
-  menuItemsSx?: SxProps;
+  menuItemsSx?: SxProps
   /** mobile menu id */
-  menuId?: string;
-  mobileMenuId?: string;
+  menuId?: string
+  mobileMenuId?: string
   /** mobile menu 2 id */
-  mobileMenu2Id?: string;
+  mobileMenu2Id?: string
   /** mui5 logo wrapper styles */
-  logoTheme?: HTMLAttributes<HTMLDivElement>;
+  logoTheme?: HTMLAttributes<HTMLDivElement>
   /** Appbar background color, image, gradient... etc. */
-  background?: IStateBackground;
+  background?: IStateBackground
   /** Appbar font color and family. */
-  typography?: IStateTypography;
+  typography?: IStateTypography
   /** Appbar icons and links. */
-  items?: IStateLink[];
-  items2?: IStateLink[];
+  items?: IStateLink[]
+  items2?: IStateLink[]
   /**
    * If `true`, the background of the app bar defined at the root state
    * (`IState`) will be used.
    */
-  useDefaultBackground?: boolean;
+  useDefaultBackground?: boolean
   /** The route of the page with a valid app bar background. */
-  backgroundInherited?: string;
+  backgroundInherited?: string
   /**
    * If `true`, the typography of the appbar defined at the root state
    * (`IState`) will be used.
    */
-  useDefaultTypography?: boolean;
+  useDefaultTypography?: boolean
   /** The route of the page with a valid appbar typography. */
-  typographyInherited?: string;
+  typographyInherited?: string
   /**
    * There are times when the available options are not enough.
    * With this function, you can insert JSON defined components
    * into an existing component to customize it even further.
    */
   components?: {
-    [comp: string]: IStateComponent[];
-  };
+    [comp: string]: IStateComponent[]
+  }
 }

@@ -19,7 +19,7 @@ import { TStateKeys } from './IState'
 // Import IAdornment from the shared types file to avoid duplication
 import { IAdornment } from '../common.types'
 
-export type TStateFormITemCustomColor = 'default'
+export type TStateFormItemCustomColor = 'default'
   | 'primary'
   | 'secondary'
   | 'error'
@@ -65,7 +65,7 @@ export default interface IStateFormItemCustom<T = unknown> {
   /** CSS classes (JSS), most likely inherited from parent element */
   classes?: unknown
   content?: string
-  color?: TStateFormITemCustomColor
+  color?: TStateFormItemCustomColor
   /**
    * Currently the only way to set the default value for a
    * field. Don't use the `value` attribute, it will not
