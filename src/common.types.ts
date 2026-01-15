@@ -17,7 +17,7 @@ export type TWithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] }
 export type TObj<T = unknown> = Record<string, T>
 
 /** Type shortcut when creating objects with string keys */
-export type O<T = unknown> = Record<string, T>
+export type TO<T = unknown> = Record<string, T>
 
 /** @deprecated */
 export type TReadonly<K extends string | number | symbol, T> = {
