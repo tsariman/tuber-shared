@@ -18,6 +18,7 @@ import { TStateKeys } from './IState'
 
 // Import IAdornment from the shared types file to avoid duplication
 import { IAdornment } from '../common.types'
+import { IRemovableState } from './IAbstractState'
 
 export type TStateFormItemCustomColor = 'default'
   | 'primary'
@@ -53,8 +54,8 @@ export interface IHandlerDirectiveAction {
 }
 
 /** Directive for handling form and other UI events */
-export interface IHandlerDirective {
-  type: THandlerDirectiveType // The directive type like '$form', '$view', etc.
+export interface IHandlerDirective extends IRemovableState {
+  type?: THandlerDirectiveType // The directive type like '$form', '$view', etc.
   formName?: string          // Form name for form-related directives
   endpoint?: string          // API endpoint for data operations
   route?: string             // Route for navigation
@@ -105,6 +106,15 @@ export default interface IStateFormItemCustom<T = unknown> {
   label?: string
   predefinedRegex?: 'username' | 'email' | 'phone'
   route?: string
+  /** API endpoint to send requests to */
+  endpoint?: string
+  /** HTTP method to use when sending requests to `endpoint` */
+  method?: 'get' | 'post' | 'put' | 'patch' | 'delete'
+  /** Headers to send with `get` requests */
+  headers?: Record<string, string>
+  /** Body to send with `post`, `put`, `patch`, or `delete` requests */
+  body?: Record<string, unknown>
+  /** Get human-readable text. */
   text?: string
   /** Get human-readable helper text. */
   helperText?: string

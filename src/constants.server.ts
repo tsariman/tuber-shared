@@ -110,9 +110,15 @@ export const CONF_TWITCH_ACCESS_TOKEN = `twitch_access_token`
 export const CONF_TWITCH_REFRESH_TOKEN = `twitch_refresh_token`
 /**
  * Configuration property at which the Twitch access token expiration can be
- * acquired.
+ * acquired. This stores the `expires_in` value in seconds from the Twitch API.
  */
 export const CONF_TWITCH_TOKEN_EXPIRATION = `twitch_expiration_date`
+/**
+ * Configuration property at which the Twitch access token expiration timestamp
+ * can be acquired. This stores the actual Unix timestamp (in milliseconds) when
+ * the token will expire.
+ */
+export const CONF_TWITCH_TOKEN_EXPIRATION_TIMESTAMP = `twitch_expiration_timestamp`
 /**
  * In case the twitch token renewal process failed. This key will be set to
  * `true` in the Config object to prevent the token renewal process from
@@ -282,6 +288,8 @@ export const $73_STATE_KEY = 'defaultPageAppbar'
 export const $74_STATE_KEY = 'new-user'
 /** User account page. @id 75 */
 export const $75_STATE_KEY = 'user'
+/** "Search mode unavailable" dialog state. @id 76 */
+export const $76_STATE_KEY = 'searchModeUnavailableDialog'
 
 // ACCESS CONTROL -------------------------------------------------------------
 
