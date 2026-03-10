@@ -69,6 +69,7 @@ export const NOTE_MAX_LENGTH_MESSAGE = `Note is too long. (${NOTE_MAX_LENGTH} ch
 export const EMBED_URL_MESSAGE = 'Paste-in the embed URL or iframe HTML code'
 export const EMBED_URL_REQUIRED_MESSAGE = 'We\'re going to need that Embed IFRAME URL. It\'s available the on video page.'
 export const PUBLISHED_HELPER_TEXT = 'If published, anyone can see the bookmark.'
+export const PUBLISHED_UNAVAILABLE = 'If published, anyone can see the bookmark. Only "supporter" accounts and above can publish bookmarks. Please consider upgrading your account to publish this bookmark.'
 
 // DEFAULT VALUES -------------------------------------------------------------
 
@@ -290,7 +291,12 @@ export const $74_STATE_KEY = 'new-user'
 export const $75_STATE_KEY = 'user'
 /** "Search mode unavailable" dialog state. @id 76 */
 export const $76_STATE_KEY = 'searchModeUnavailableDialog'
-
+/** "Bookmark publish unavailable" dialog state. @id 77 */
+export const $77_STATE_KEY = 'bookmarkPublishUnavailableDialog'
+/** "Bookmark edit publish switch" state. @id 78 */
+export const $78_STATE_KEY = 'bookmarkEditPublishSwitchDummy'
+/** "Bookmark edit publish switch" state. @id 79 */
+export const $79_STATE_KEY = 'bookmarkEditPublishSwitch'
 // ACCESS CONTROL -------------------------------------------------------------
 
 /** Possible user role */

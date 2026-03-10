@@ -16,6 +16,15 @@ import {
 } from '@mui/material'
 import { TStateKeys } from './IState'
 
+/**
+ * The `control` property is required. However, I don't think its content is
+ * serializable. Therefore, it is omitted
+ */
+export type TFormControlLabelProps = Omit<FormControlLabelProps, 'control' | 'label'> & {
+  /** A readable text */
+  label?: string
+}
+
 // Import IAdornment from the shared types file to avoid duplication
 import { IAdornment } from '../common.types'
 import { IRemovableState } from './IAbstractState'
@@ -209,7 +218,7 @@ export default interface IStateFormItemCustom<T = unknown> {
   /** Used for select components */
   formControlProps?: FormControlProps
   /** Used for select components */
-  formControlLabelProps?: FormControlLabelProps
+  formControlLabelProps?: TFormControlLabelProps
   /** Used for select components */
   inputLabelProps?: InputLabelProps
   /** Used for radio components */

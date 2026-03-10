@@ -49,8 +49,11 @@ export const DEFAULT_BLANK_PAGE_VIEW = 'default_blank_page_view'
 // form items
 
 export const BREAK_LINE = 'br'
+/** @deprecated */
 export const BOOL_ONOFF = 'bool_onoff'
+/** @deprecated */
 export const BOOL_TRUEFALSE = 'bool_truefalse'
+/** @deprecated */
 export const BOOL_YESNO = 'bool_yesno'
 export const BOX = 'box'
 export const STATE_BUTTON = 'state_button'
@@ -89,8 +92,9 @@ export const STATE_SELECT_NATIVE = 'state_select_native'
 export const STACK = 'stack'
 export const STATIC_DATE_PICKER = 'static_date_picker'
 export const SUBMIT = 'submit'
-export const SINGLE_SWITCH = 'single_switch'
+export const SWITCH_SINGLE = 'switch_single'
 export const SWITCH = 'switch'
+export const SWITCH_DUMMY = 'switch_dummy'
 export const TEXT = 'text'
 export const TEXTAREA = 'textarea'
 export const TEXTFIELD = 'textfield'
@@ -104,28 +108,15 @@ export const BAD_FORM_ITEM = ''
 // export const THEME_MODE = 'theme_mode'
 export const THEME_DEFAULT_MODE = 'dark'
 
-/** Type for page layout. */
-// export type TStatePageLayout =
-//     typeof LAYOUT_CENTERED_NO_SCROLL
-//   | typeof LAYOUT_CENTERED
-//   | typeof LAYOUT_DEFAULT
-//   | typeof LAYOUT_MD
-//   | typeof LAYOUT_NONE
-//   | typeof LAYOUT_NONE_NO_APPBAR
-//   | typeof LAYOUT_SM
-//   | typeof LAYOUT_TABLE_VIRTUALIZED
-//   | typeof LAYOUT_XL
-//   | typeof LAYOUT_XS
-
 export const DRAWER_DEFAULT_WIDTH = 300
 
 /**
-   * Limits the number of time the app attempts to load a page state from the
-   * server if none was defined.
-   *
-   * **Warning:** This fixes a bug where the app infinitely attempts to load
-   * state from server.
-   */
+ * Limits the number of time the app attempts to load a page state from the
+ * server if none was defined.
+ *
+ * **Warning:** This fixes a bug where the app infinitely attempts to load
+ * state from server.
+ */
 export const ALLOWED_ATTEMPTS = 1
 
 // messages

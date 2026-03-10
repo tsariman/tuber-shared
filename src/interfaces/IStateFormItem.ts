@@ -1,6 +1,5 @@
 
 import { CSSProperties } from 'react'
-import * as C from '../constants.client'
 import IAbstractState from './IAbstractState'
 import IStateFormItemCustom from './IStateFormItemCustom'
 import IStateLink from './IStateLink'
@@ -49,55 +48,57 @@ export interface IStateFormItemInputProps extends InputProps {
 }
 
 /** List of all possible type a form item can be. */
-export type TStateFormItemType = typeof C.BREAK_LINE
-  | typeof C.BOOL_ONOFF
-  | typeof C.BOOL_TRUEFALSE
-  | typeof C.BOOL_YESNO
-  | typeof C.BOX
-  | typeof C.STATE_BUTTON
-  | typeof C.CHECKBOXES
-  | typeof C.DATE_TIME_PICKER
-  | typeof C.DESKTOP_DATE_PICKER
-  | typeof C.DESKTOP_DATE_TIME_PICKER
-  | typeof C.DIV
-  | typeof C.A
-  | typeof C.FORM
-  | typeof C.FORM_CONTROL
-  | typeof C.FORM_CONTROL_LABEL
-  | typeof C.FORM_GROUP
-  | typeof C.FORM_HELPER_TEXT
-  | typeof C.FORM_LABEL
-  | typeof C.HIGHLIGHT
-  | typeof C.HORIZONTAL_LINE
-  | typeof C.HTML
-  | typeof C.HTML_TAG
-  | typeof C.INDETERMINATE
-  | typeof C.STATE_INPUT
-  | typeof C.INPUT_LABEL
-  | typeof C.ICON
-  | typeof C.LINK
-  | typeof C.LOCALIZED
-  | typeof C.MOBILE_DATE_PICKER
-  | typeof C.MOBILE_DATE_TIME_PICKER
-  | typeof C.NONE
-  | typeof C.NUMBER
-  | typeof C.PARAGRAPH
-  | typeof C.PASSWORD
-  | typeof C.PHONE_INPUT
-  | typeof C.RADIO_BUTTONS
-  | typeof C.STATE_SELECT
-  | typeof C.STATE_SELECT_NATIVE
-  | typeof C.STACK
-  | typeof C.STATIC_DATE_PICKER
-  | typeof C.SUBMIT
-  | typeof C.SINGLE_SWITCH
-  | typeof C.SWITCH
-  | typeof C.TEXT
-  | typeof C.TEXTAREA
-  | typeof C.TEXTFIELD
-  | typeof C.TEXT_NODE
-  | typeof C.TIME_PICKER
-  | typeof C.BAD_FORM_ITEM
+export type TStateFormItemType = 'br'
+| 'bool_onoff'
+| 'bool_truefalse'
+| 'bool_yesno'
+| 'box'
+| 'state_button'
+| 'checkboxes'
+| 'date_time_picker'
+| 'desktop_date_picker'
+| 'desktop_date_time_picker'
+| 'div'
+| 'a'
+| 'form'
+| 'form_control'
+| 'form_control_label'
+| 'form_group'
+| 'form_helper_text'
+| 'form_label'
+| 'highlight'
+| 'hr'
+| 'html'
+| 'html_tag'
+| 'indeterminate'
+| 'state_input'
+| 'input_label'
+| 'icon'
+| 'link'
+| 'localized'
+| 'mobile_date_picker'
+| 'mobile_date_time_picker'
+| 'none'
+| 'number'
+| 'paragraph'
+| 'password'
+| 'phone_input'
+| 'radio_buttons'
+| 'state_select'
+| 'state_select_native'
+| 'stack'
+| 'static_date_picker'
+| 'submit'
+| 'switch_single'
+| 'switch'
+| 'switch_dummy'
+| 'text'
+| 'textarea'
+| 'textfield'
+| 'text_node'
+| 'time_picker'
+| 'default'
+| 'bad_form_item'
 
 export default interface IStateFormItem<T=unknown> extends IAbstractState {
   /** Form field type e.g. textfield, select, radio... etc. */

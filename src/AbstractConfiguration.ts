@@ -4,8 +4,8 @@ export default abstract class AbstractConfiguration {
   protected config: Record<string, unknown> 
 
   constructor(init?: Record<string, unknown>) {
-    this.config = this.is_record(init) ? init : {}
-    
+    this.config = this.isRecord(init) ? init : {}
+  
     // Create a proxy to make config properties accessible directly on the instance
     return new Proxy(this, {
       get(target, prop: string | symbol) {
@@ -57,7 +57,7 @@ export default abstract class AbstractConfiguration {
   }
 
   /** Checks if the argument is an `object` with `string` indexes. Returns `true` if it is. */
-  protected is_record = <T>(obj: unknown): obj is Record<string, T> => {
+  protected isRecord = <T>(obj: unknown): obj is Record<string, T> => {
     return obj !==null && typeof obj === 'object' && !Array.isArray(obj)
   }
 
@@ -68,7 +68,7 @@ export default abstract class AbstractConfiguration {
    * @throws Error if data is not a record
    */
   init(data?: Record<string, unknown>): void {
-    if (this.is_record(data)) {
+    if (this.isRecord(data)) {
       // Clear existing config
       this.config ??= {}
       // Add new values
@@ -136,7 +136,7 @@ export default abstract class AbstractConfiguration {
         } else {
           return undefined
         }
-      } else if (!this.is_record(o[prop])) {
+      } else if (!this.isRecord(o[prop])) {
         if (val !== undefined) {
           throw new Error(`Cannot set nested property on non-object at path segment '${prop}' in '${path}'`)
         }

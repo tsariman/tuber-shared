@@ -8,6 +8,8 @@ import { IConfiguration } from './interfaces'
  * 
  * Note: write() can overwrite previously immutable properties set by set().
  * Attempting to set nested properties on non-object intermediates will throw an error.
+ * 
+ * @deprecated Not is use and removal is imminent
  */
 export class Configuration implements IConfiguration {
   [key: string]: unknown
@@ -15,7 +17,7 @@ export class Configuration implements IConfiguration {
   private _config: Record<string, unknown> 
 
   constructor(init: unknown) {
-    this._config = this._is_record(init) ? init : {}
+    this._config = this._isRecord(init) ? init : {}
     
     // Create a proxy to make config properties accessible directly on the instance
     return new Proxy(this, {
@@ -56,12 +58,12 @@ export class Configuration implements IConfiguration {
   }
 
   /** Checks if the argument is an `object` with `string` indexes. Returns `true` if it is. */
-  private _is_record = <T>(obj: unknown): obj is Record<string, T> => {
+  private _isRecord = <T>(obj: unknown): obj is Record<string, T> => {
     return obj !==null && typeof obj === 'object' && !Array.isArray(obj)
   }
 
   init(data?: unknown): void {
-    if (this._is_record(data)) {
+    if (this._isRecord(data)) {
       // Clear existing config
       this._config = {}
       // Add new values
@@ -127,7 +129,7 @@ export class Configuration implements IConfiguration {
         } else {
           return undefined
         }
-      } else if (!this._is_record(o[prop])) {
+      } else if (!this._isRecord(o[prop])) {
         if (val !== undefined) {
           throw new Error(`Cannot set nested property on non-object at path segment '${prop}' in '${path}'`)
         }
