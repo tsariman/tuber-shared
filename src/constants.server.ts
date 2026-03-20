@@ -140,163 +140,167 @@ export const DEFAULT_AUTH_HEADER = `Bearer ${MISSING_ACCESS_TOKEN}`
 
 // STATE KEYS -----------------------------------------------------------------
 
-/** Page state for listing page app. @id 1 */
+/** Page state for listing page app. @id 1 @deprecated */
 export const $1_STATE_KEY = 'newVideoUrlForm'
-/** New video URL dialog state. @id 2 */
+/** New video URL dialog state. @id 2 @deprecated */
 export const $2_STATE_KEY = 'newVideoUrlDialog'
-/** New bookmark from URL link state. @id 3 */
+/** New bookmark from URL link state. @id 3 @deprecated */
 export const $3_STATE_KEY = 'newBookmarkFromUrlLinkState'
-/** New YouTube bookmark form state. @id 4 */
+/** New YouTube bookmark form state. @id 4 @deprecated */
 export const $4_STATE_KEY = 'newYouTubeBookmarkForm'
-/** Edit YouTube bookmark form state. @id 5 */
+/** Edit YouTube bookmark form state. @id 5 @deprecated */
 export const $5_STATE_KEY = 'editYouTubeBookmarkForm'
-/** New YouTube bookmark dialog state. @id 6 */
+/** New YouTube bookmark dialog state. @id 6 @deprecated */
 export const $6_STATE_KEY = 'newYouTubeBookmarkDialog'
-/** Edit YouTube bookmark dialog state. @id 7 */
+/** Edit YouTube bookmark dialog state. @id 7 @deprecated */
 export const $7_STATE_KEY = 'editYouTubeBookmarkDialog'
-/** New Rumble bookmark dialog state. @id 8 */
+/** New Rumble bookmark dialog state. @id 8 @deprecated */
 export const $8_STATE_KEY = 'newRumbleBookmarkDialog'
-/** New Rumble bookmark form state. @id 9 */
+/** New Rumble bookmark form state. @id 9 @deprecated */
 export const $9_STATE_KEY = 'newRumbleBookmarkForm'
-/** Edit Rumble bookmark form state. @id 10 */
+/** Edit Rumble bookmark form state. @id 10 @deprecated */
 export const $10_STATE_KEY = 'editRumbleBookmarkForm'
-/** Edit Rumble bookmark dialog state. @id 11 */
+/** Edit Rumble bookmark dialog state. @id 11 @deprecated */
 export const $11_STATE_KEY = 'editRumbleBookmarkDialog'
-/** New Vimeo bookmark form state. @id 12 */
+/** New Vimeo bookmark form state. @id 12 @deprecated */
 export const $12_STATE_KEY = 'newVimeoBookmarkForm'
-/** Edit Vimeo bookmark form state. @id 13 */
+/** Edit Vimeo bookmark form state. @id 13 @deprecated */
 export const $13_STATE_KEY = 'editVimeoBookmarkForm'
-/** New Vimeo bookmark dialog state. @id 14 */
+/** New Vimeo bookmark dialog state. @id 14 @deprecated */
 export const $14_STATE_KEY = 'newVimeoBookmarkDialog'
-/** Edit Vimeo bookmark dialog state. @id 15 */
+/** Edit Vimeo bookmark dialog state. @id 15 @deprecated */
 export const $15_STATE_KEY = 'editVimeoBookmarkDialog'
-/** New Odysee bookmark dialog state. @id 16 */
+/** New Odysee bookmark dialog state. @id 16 @deprecated */
 export const $16_STATE_KEY = 'newOdyseeBookmarkDialog'
-/** New Odysee bookmark form state. @id 17 */
+/** New Odysee bookmark form state. @id 17 @deprecated */
 export const $17_STATE_KEY = 'newOdyseeBookmarkForm'
-/** Edit Odysee bookmark form state. @id 18 */
+/** Edit Odysee bookmark form state. @id 18 @deprecated */
 export const $18_STATE_KEY = 'editOdyseeBookmarkForm'
-/** New DailyMotion bookmark form state. @id 19 */
+/** New DailyMotion bookmark form state. @id 19 @deprecated */
 export const $19_STATE_KEY = 'newDailyBookmarkForm'
-/** Edit DailyMotion bookmark form state. @id 20 */
+/** Edit DailyMotion bookmark form state. @id 20 @deprecated */
 export const $20_STATE_KEY = 'editDailyBookmarkForm'
-/** New DailyMotion bookmark dialog state. @id 21 */
+/** New DailyMotion bookmark dialog state. @id 21 @deprecated */
 export const $21_STATE_KEY = 'newDailyBookmarkDialog'
-/** Edit DailyMotion bookmark dialog state. @id 22 */
+/** Edit DailyMotion bookmark dialog state. @id 22 @deprecated */
 export const $22_STATE_KEY = 'editDailyBookmarkDialog'
-/** Edit Odysee bookmark dialog state. @id 23 */
+/** Edit Odysee bookmark dialog state. @id 23 @deprecated */
 export const $23_STATE_KEY = 'editOdyseeBookmarkDialog'
-/** New Facebook bookmark form state. @id 24 */
+/** New Facebook bookmark form state. @id 24 @deprecated */
 export const $24_STATE_KEY = 'newFacebookBookmarkForm'
-/** Edit Facebook bookmark form state. @id 25 */
+/** Edit Facebook bookmark form state. @id 25 @deprecated */
 export const $25_STATE_KEY = 'editFacebookBookmarkForm'
-/** New Facebook bookmark dialog state. @id 26 */
+/** New Facebook bookmark dialog state. @id 26 @deprecated */
 export const $26_STATE_KEY = 'newFacebookBookmarkDialog'
-/** Edit Facebook bookmark dialog state. @id 27 */
+/** Edit Facebook bookmark dialog state. @id 27 @deprecated */
 export const $27_STATE_KEY = 'editFacebookBookmarkDialog'
-/** New unknown bookmark form state. @id 28 */
+/** New unknown bookmark form state. @id 28 @deprecated */
 export const $28_STATE_KEY = 'newUnknownBookmarkForm'
-/** Edit unknown bookmark form state. @id 29 */
+/** Edit unknown bookmark form state. @id 29 @deprecated */
 export const $29_STATE_KEY = 'editUnknownBookmarkForm'
-/** New unknown bookmark dialog state. @id 30 */
+/** New unknown bookmark dialog state. @id 30 @deprecated */
 export const $30_STATE_KEY = 'newUnknownBookmarkDialog'
-/** Edit unknown bookmark dialog state. @id 31 */
+/** Edit unknown bookmark dialog state. @id 31 @deprecated */
 export const $31_STATE_KEY = 'editUnknownBookmarkDialog'
-/** Sign-in dialog state. @id 32 */
+/** Sign-in dialog state. @id 32 @deprecated */
 export const $32_STATE_KEY = 'signInDialog'
-/** Register dialog state. @id 33 */
+/** Register dialog state. @id 33 @deprecated */
 export const $33_STATE_KEY = 'registerDialog'
-/** Delete bookmark dialog state. @id 34 */
+/** Delete bookmark dialog state. @id 34 @deprecated */
 export const $34_STATE_KEY = 'deleteBookmarkDialog'
-/** Client alert dialog state. @id 35 */
+/** Client alert dialog state. @id 35 @deprecated */
 export const $35_STATE_KEY = 'clientAlertDialog'
-/** New Twitch bookmark dialog state. @id 36 */
+/** New Twitch bookmark dialog state. @id 36 @deprecated */
 export const $36_STATE_KEY = 'newTwitchBookmarkDialog'
-/** Edit Twitch bookmark dialog state. @id 37 */
+/** Edit Twitch bookmark dialog state. @id 37 @deprecated */
 export const $37_STATE_KEY = 'editTwitchBookmarkDialog'
-/** New Twitch bookmark form state. @id 38 */
+/** New Twitch bookmark form state. @id 38 @deprecated */
 export const $38_STATE_KEY = 'newTwitchBookmarkForm'
-/** Edit Twitch bookmark form state. @id 39 */
+/** Edit Twitch bookmark form state. @id 39 @deprecated */
 export const $39_STATE_KEY = 'editTwitchBookmarkForm'
-/** Research app page state. @id 40 */
+/** Research app page state. @id 40 @deprecated */
 export const $40_STATE_KEY = 'research-app'
-/** Sign-in form state. @id 41 */
+/** Sign-in form state. @id 41 @deprecated */
 export const $41_STATE_KEY = 'signInForm'
-/** Sign-in page state. @id 42 */
+/** Sign-in page state. @id 42 @deprecated */
 export const $42_STATE_KEY = 'sign-in'
-/** Dev signed in page state. @id 43 */
+/** Dev signed in page state. @id 43 @deprecated */
 export const $43_STATE_KEY = 'dev-signed-In'
-/** Dev install page state. @id 44 */
+/** Dev install page state. @id 44 @deprecated */
 export const $44_STATE_KEY = 'dev-install'
-/** Dev test thumbnail form state. @id 45 */
+/** Dev test thumbnail form state. @id 45 @deprecated */
 export const $45_STATE_KEY = 'devTestThumbnailForm'
-/** Dev test thumbnail page state. @id 46 */
+/** Dev test thumbnail page state. @id 46 @deprecated */
 export const $46_STATE_KEY = 'dev-test-thumbnail'
-/** Dev install form state. @id 47 */
+/** Dev install form state. @id 47 @deprecated */
 export const $47_STATE_KEY = 'devInstallForm'
-/** Default errors view page state. @id 48 */
+/** Default errors view page state. @id 48 @deprecated */
 export const $48_STATE_KEY = 'default-errors-view'
-/** Dev set authorization key form state. @id 49 */
+/** Dev set authorization key form state. @id 49 @deprecated */
 export const $49_STATE_KEY = 'devSetAuthorizationKeyForm'
-/** Dev set authorization URL form state. @id 50 */
+/** Dev set authorization URL form state. @id 50 @deprecated */
 export const $50_STATE_KEY = 'devSetAuthorizationUrlForm'
-/** Chipped listing page state. @id 51 */
+/** Chipped listing page state. @id 51 @deprecated */
 export const $51_STATE_KEY = 'listing/:id'
+/** <taken> @id 52 @deprecated */
 export const $52_STATE_KEY = '<taken>'
-/** Admin readable page state. @id 53 */
+/** Admin readable page state. @id 53 @deprecated */
 export const $53_STATE_KEY = 'admin-readable'
-/** Dev test rumble regexp form state. @id 54 */
+/** Dev test rumble regexp form state. @id 54 @deprecated */
 export const $54_STATE_KEY = 'devTestRumbleRegexpForm'
-/** Admin config app page state. @id 55 */
+/** Admin config app page state. @id 55 @deprecated */
 export const $55_STATE_KEY = 'admin-config-app'
-/**Dev test rumble regexp page state. @id 56 */
+/**Dev test rumble regexp page state. @id 56 @deprecated */
 export const $56_STATE_KEY = 'dev-test-rumble-regexp'
-/** Dev test unknown regexp form state. @id 57 */
+/** Dev test unknown regexp form state. @id 57 @deprecated */
 export const $57_STATE_KEY = 'devTestUnknownRegexpForm'
-/** Dev test unknown regexp page state. @id 58 */
+/** Dev test unknown regexp page state. @id 58 @deprecated */
 export const $58_STATE_KEY = 'dev-test-unknown-regexp'
-/** Dev Twitch input client ID page state. @id 59 */
+/** Dev Twitch input client ID page state. @id 59 @deprecated */
 export const $59_STATE_KEY = 'dev-twitch-input-client-id'
-/** Dev Twitch input client ID form state. @id 60 */
+/** Dev Twitch input client ID form state. @id 60 @deprecated */
 export const $60_STATE_KEY = 'devTwitchInputClientIdForm'
-/** Dev save config value page state. @id 61 */
+/** Dev save config value page state. @id 61 @deprecated */
 export const $61_STATE_KEY = 'save-config-value'
-/** Dev save config value form state. @id 62 */
+/** Dev save config value form state. @id 62 @deprecated */
 export const $62_STATE_KEY = 'devSaveConfigValueForm'
-/** Research page app bar state. @id 63 */
+/** Research page app bar state. @id 63 @deprecated */
 export const $63_STATE_KEY = 'researchPageAppbar'
-/** Response alert dialog state. @id 64 */
+/** Response alert dialog state. @id 64 @deprecated */
 export const $64_STATE_KEY = 'responseAlertDialog'
-/** Alert dialog state. @id 65 */
+/** Alert dialog state. @id 65 @deprecated */
 export const $65_STATE_KEY = 'alertDialog'
-/** Logout link state. @id 66 */
+/** Logout link state. @id 66 @deprecated */
 export const $66_STATE_KEY = 'powerLogoutLink'
-/** Sign-in link state. @id 67 */
+/** Sign-in link state. @id 67 @deprecated */
 export const $67_STATE_KEY = 'powerSignInLink'
-/** Confirm logout dialog state. @id 68 */
+/** Confirm logout dialog state. @id 68 @deprecated */
 export const $68_STATE_KEY = 'confirmLogoutDialog'
-/** Create a new user account form state. @id 69 */
+/** Create a new user account form state. @id 69 @deprecated */
 export const $69_STATE_KEY = 'newUserForm'
-/** Listing (research alias). @id 70 */
+/** Listing (research alias). @id 70 @deprecated */
 export const $70_STATE_KEY = 'listing'
-/** Listing page app bar state. @id 71 */
+/** Listing page app bar state. @id 71 @deprecated */
 export const $71_STATE_KEY = 'listingPageAppbar'
-/** Sign up page. @id 72 */
+/** Sign up page. @id 72 @deprecated */
 export const $72_STATE_KEY = 'signup'
-/** Default page app bar state. @id 73 */
+/** Default page app bar state. @id 73 @deprecated */
 export const $73_STATE_KEY = 'defaultPageAppbar'
-/** Create a new user page. @id 74 */
+/** Create a new user page. @id 74 @deprecated */
 export const $74_STATE_KEY = 'new-user'
-/** User account page. @id 75 */
+/** User account page. @id 75 @deprecated */
 export const $75_STATE_KEY = 'user'
-/** "Search mode unavailable" dialog state. @id 76 */
+/** "Search mode unavailable" dialog state. @id 76 @deprecated */
 export const $76_STATE_KEY = 'searchModeUnavailableDialog'
-/** "Bookmark publish unavailable" dialog state. @id 77 */
+/** "Bookmark publish unavailable" dialog state. @id 77 @deprecated */
 export const $77_STATE_KEY = 'bookmarkPublishUnavailableDialog'
-/** "Bookmark edit publish switch" state. @id 78 */
+/** "Bookmark edit publish switch" state. @id 78 @deprecated */
 export const $78_STATE_KEY = 'bookmarkEditPublishSwitchDummy'
-/** "Bookmark edit publish switch" state. @id 79 */
+/** "Bookmark edit publish switch" state. @id 79 @deprecated */
 export const $79_STATE_KEY = 'bookmarkEditPublishSwitch'
+/** Account page state. @id 80 @deprecated */
+export const $80_STATE_KEY = 'account'
+
 // ACCESS CONTROL -------------------------------------------------------------
 
 /** Possible user role */
