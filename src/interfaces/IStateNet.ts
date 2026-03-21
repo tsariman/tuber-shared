@@ -49,8 +49,10 @@ export default interface IStateNet {
   name?: string
   role?: string
   /**
-   * User JWT token. It will be placed in the authorization header as the
-   * "Bearer"
+    * Legacy token field.
+    *
+    * Browser clients should rely on cookie-based authentication rather than a
+    * bootstrap-provided bearer token.
    */
   token?: string
   /** User id */
