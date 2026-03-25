@@ -56,6 +56,7 @@ export type THandlerDirectiveType = '$form'
 
 export type THandlerDirectiveRule = 'close_dialog'
 | 'disable_on_submit'
+| 'bootstrap'
 
 export interface IHandlerDirectiveAction {
   type: string
@@ -74,6 +75,8 @@ export interface IHandlerDirective extends IRemovableState {
   rules?: THandlerDirectiveRule[]
   /** Redux actions to perform after the directive is executed */
   actions?: IHandlerDirectiveAction[]
+  /** Set client-side configuration */
+  config?: Record<string, unknown>
 }
 
 export default interface IStateFormItemCustom<T = unknown> {
