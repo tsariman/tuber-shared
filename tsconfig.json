@@ -8,7 +8,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "CommonJS",
+    "module": "node16",
     "moduleResolution": "node16",
     "resolveJsonModule": true,
     "isolatedModules": true,
