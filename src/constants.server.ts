@@ -7,7 +7,8 @@ export const COLLECTION_NAME = 'bookmarks'
 export const EP_AUTH = Object.freeze({
   IN: 'signin',
   OUT: 'signout',
-  RECOVERY: 'password/recovery'
+  RECOVERY: 'password/recovery',
+  RESET: 'password/reset'
 })
 export const EP_BOOKMARKS = 'bookmarks'
 export const EP_BOOKMARKS_ID = `${EP_BOOKMARKS}/:id`
