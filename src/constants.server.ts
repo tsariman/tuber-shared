@@ -7,6 +7,7 @@ export const COLLECTION_NAME = 'bookmarks'
 export const EP_AUTH = Object.freeze({
   IN: 'signin',
   OUT: 'signout',
+  CLIENT_IN: 'sign-in',
   RECOVERY: 'password/recovery',
   RESET: 'password/reset'
 })
