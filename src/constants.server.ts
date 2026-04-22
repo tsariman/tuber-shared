@@ -23,6 +23,7 @@ export const EP_INSTALL = 'install'
 export const EP_PLATFORM = 'platform'
 export const EP_REGISTER = 'register'
 export const EP_ACCOUNT = 'account'
+export const EP_CONTENTS = 'contents'
 
 // THEMING (theme prefix) -----------------------------------------------------
 
