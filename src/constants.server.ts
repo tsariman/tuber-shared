@@ -22,7 +22,7 @@ export const EP_DEV_BUILDER = `dev/builder`
 export const EP_INSTALL = 'install'
 export const EP_PLATFORM = 'platform'
 export const EP_REGISTER = 'register'
-export const EP_ACCOUNT = 'account'
+export const EP_ACCOUNT = 'api/account'
 export const EP_CONTENTS = 'contents'
 
 // THEMING (theme prefix) -----------------------------------------------------
