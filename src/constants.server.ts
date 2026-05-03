@@ -9,6 +9,7 @@ export const EP_AUTH = Object.freeze({
   OUT: 'signout',
   CLIENT_IN: 'sign-in',
   RECOVERY: 'password/recovery',
+  VERIFY: 'password/verify',
   RESET: 'password/reset'
 })
 export const EP_BOOKMARKS = 'bookmarks'
