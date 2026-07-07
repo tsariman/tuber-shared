@@ -73,13 +73,18 @@ on page N when the URL was created may no longer be on that page later.
 
 Decision:
 
-- Resolve `playing_bookmark_key` first via direct bookmark lookup (ObjectID lookup).
-- Determine the page position of the resolved bookmark within the current search result set.
+- Resolve `playing_bookmark_key` using a model-level page resolver scoped to the active
+  search context (`search_mode`, `search`, auth visibility).
+- Determine the containing page by computing bookmark rank/page in the filtered result set
+  with deterministic ordering (for example, search score + tie-breakers, or recency order
+  when no search query is present).
 - Return the full search-result page where the playing bookmark is located, using normal
   pagination semantics (`data.bookmarks`, pagination links, and page metadata).
 - If `playing_bookmark_key` is missing or does not resolve within the active search result set,
   return the normal first page of the search query.
 - Do not rely on stale stored page-number metadata for bookmark resolution.
+
+Implementation note: server-side page resolution is performed by `resolve_bookmark_page_by_query` in `tuber-server/src/model/bookmark/read.bookmark.collection.by.query.ts`.
 
 ### Bootstrap Composition Rule
 
