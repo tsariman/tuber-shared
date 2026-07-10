@@ -130,6 +130,36 @@ The app uses a **single history state per session** approach:
 - **No URL change detection required**: The app does not monitor URL changes. The query string
   is only read once at bootstrap time.
 
+## Post-Authentication Continuity Rules
+
+When a non-authenticated user opens a shared link and later authenticates in the same session,
+the app must preserve and apply key query-string intent rather than resetting to defaults.
+
+- `search_mode` from the link must still take effect after authentication.
+- `player_open` from the link must remain enforced after authentication and must not be reset to
+  the default authenticated state.
+- This transition must not add extra history entries; continue using `replaceState()` semantics
+  for any allowed URL updates.
+
+### Search Mode Behavior After Authentication
+
+- If `search_mode=private`:
+  - Ignore the link query text (`filter[search]`) for post-authentication loading.
+  - Load the authenticated user's most recent bookmarks as a normal first page.
+  - Keep full pagination behavior enabled for this private recent-bookmarks flow (load more pages
+    in deterministic reverse chronological order when available).
+- If `search_mode=all`:
+  - Re-run bookmark loading at authentication time using the same query-string search context.
+  - This refetch is required because the authenticated visibility set is broader than the guest
+    visibility set and may qualify additional bookmarks for the same query.
+  - Keep pagination semantics identical to normal query results after authentication.
+- If `search_mode=public`:
+  - Ignore the link query text (`filter[search]`) at authentication time.
+  - Do not fetch a new bookmark list from the server as part of the auth transition.
+  - Keep the already-loaded bookmark list from the pasted link intact.
+  - An optional lightweight metadata refresh is allowed (for example, vote/ownership state)
+    provided it does not replace the visible bookmark collection.
+
 ## Bootstrap No-Search Rules
 
 When `filter[search]` is absent or blank at bootstrap:
