@@ -26,16 +26,38 @@ const filterObject = {
 ### Query Variable Rules
 
 - `search_mode` must be one of: `public`, `private`, `all`.
-- `search` must be a non-empty string with a maximum length of 255 characters.
+- `search` is optional for playback-only URL sync; when present, it must be a string with a maximum length of 255 characters.
 - `playing_bookmark_key` is optional and stores only a bookmark identity value (prefer `_id` / ObjectID).
 - `playing_bookmark_page` is deprecated and should not be used for bootstrap lookup.
-- Missing query variables, invalid values, or an over-length `search` must prevent URL updates until state is valid.
+- Missing query variables, invalid values, or an over-length `search` must prevent search-driven URL updates until state is valid.
+- Bookmark selection must still be able to update the URL when `search` is empty or missing, so clicking a bookmark to play from a blank search state can still write `playing_bookmark_key`.
+- In `private` search mode, a missing or blank `search` is valid and means the user wants the recent-bookmarks flow instead of a text search.
 
 ## What Must Happen
 
 ### Search Query Capture
 - When the user performs a search using the search field, capture the search parameters
   (search mode, search text, etc.).
+- If the user submits an empty search while `search_mode=private`, the client must treat this
+  as an explicit request for the authenticated user's recent bookmarks.
+- This private empty-search submit path must immediately request the first recents page and keep
+  standard pagination enabled for additional pages.
+- Recents pagination for this flow must use deterministic reverse chronological order
+  (recommended: `created_at desc`, then `_id desc` as a tie-breaker).
+
+### Private Empty-Search Recovery Flow
+
+- Goal: allow the user to return to their recent private bookmarks after any prior search state.
+- Trigger: search submit with `search_mode=private` and a blank/whitespace query.
+- Behavior: issue the recent-bookmarks request automatically (same response shape as normal list
+  loading), and do not require any additional user action.
+- Pagination: continue from page 1 using normal load-more semantics in reverse chronological
+  order.
+
+### Bookmark Playback Capture
+- When the user clicks a bookmark to play, capture the selected bookmark key even if the search field is blank.
+- A blank search field must not block `filter[playing_bookmark_key]` from being written to the query string.
+- If the user has not searched yet, the URL may still represent playback state without a `filter[search]` value.
 
 ### URL Query String Update
 - Update the URL query string to reflect the captured search parameters after the bookmark
@@ -203,6 +225,7 @@ The following user interactions trigger a URL update (subject to the rules above
 | Interaction              | Triggers URL update? |
 |--------------------------|----------------------|
 | Submit a search query    | Yes                  |
+| Submit empty query (`private`) | Yes           |
 | Select a bookmark        | Yes                  |
 | Open / close the player  | Yes                  |
 | Toggle thumbnail display | Yes                  |
